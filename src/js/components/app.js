@@ -1,11 +1,12 @@
 'use strict';
 import React, { Component } from 'react';
+import Header from './header/header.js';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <p>hello</p>
+        <Header />
       </div>
     );
   }
