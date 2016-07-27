@@ -1,3 +1,5 @@
+'use strict';
+
 import React, { Component } from 'react';
 import Pokedex from 'pokedex-promise-v2';
 
@@ -13,7 +15,18 @@ var PokeApi = {
     .catch(function(error) {
       console.log('There was an ERROR: ', error);
     });
+  },
+
+  allPokemons: function() {
+    return P.getPokedexByName("kanto")
+    .then(function(response) {
+      return response;
+    })
+    .catch(function(error) {
+      console.log('There was an ERROR: ', error);
+    });
   }
+
 }
 
 export default PokeApi
