@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokeList: null,
+      pokeList: [],
       name: '',
       image: '',
       number: '',
@@ -23,6 +23,7 @@ class App extends Component {
       this.setState({
         pokeList: data.pokemon_entries
       })
+      console.log(data.pokemon_entries);
     }.bind(this));
   }
 
