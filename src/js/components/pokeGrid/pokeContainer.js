@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class PokeContainer extends Component {
 
@@ -26,11 +27,11 @@ class PokeContainer extends Component {
         {this.props.pokeList.map((pokemon, index) => {
           return (
             <div key={index} className="col-xs-6 col-md-2">
-              <a style={aTagStyle} href={index + 1} className="thumbnail">
+              <Link style={aTagStyle} to={ `show/${index + 1}` } className="thumbnail">
                 <img src={`https://s3-eu-west-1.amazonaws.com/calpaterson-pokemon/${index + 1}.jpeg`} style={imgStyle} />
                 <p style={textStyle}>{pokemon.entry_number}</p>
                 <p style={textStyle}>{pokemon.pokemon_species.name}</p>
-              </a>
+              </Link>
             </div>
           );
         })}
