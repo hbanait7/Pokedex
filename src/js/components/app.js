@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import Header from './header/header.js';
+import Jumbotron from './jumbotron/jumbotron.js';
 import PokeApi from '../api/api.js';
 import PokeGrid from './pokeGrid/pokeGrid.js';
 
@@ -10,11 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokeList: [],
-      name: '',
-      image: '',
-      number: '',
-      type: ''
+      pokeList: []
     };
   }
 
@@ -31,6 +28,7 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <Jumbotron />
         <PokeGrid pokeList={this.state.pokeList} />
       </div>
     );

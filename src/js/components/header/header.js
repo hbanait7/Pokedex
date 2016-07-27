@@ -2,13 +2,14 @@
 
 import React, { Component } from 'react';
 import SearchBar from './searchBar.js';
+import Dropdown from './dropdown.js';
 
 class Header extends Component {
 
   render() {
     return (
       <div>
-        <nav className="navbar navbar-default">
+        <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container-fluid">
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -22,6 +23,7 @@ class Header extends Component {
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <SearchBar />
+              <Dropdown />
             </div>
           </div>
         </nav>
