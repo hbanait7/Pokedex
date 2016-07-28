@@ -7,7 +7,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './components/app.js';
 import PokeShow from './components/pokeGrid/pokeShow.js';
 import PokeGrid from './components/pokeGrid/pokeGrid.js';
-//<PokeGrid pokeList={this.state.pokeList} />
+
 class PokedexRouter extends Component {
 
   render() {
@@ -16,6 +16,7 @@ class PokedexRouter extends Component {
         <Route path='/' component={App} >
           <IndexRoute component={PokeGrid} />
           <Route path='show/:imageId' component={PokeShow} />
+          <Route path='pokemon/:type' component={PokeGrid} />
         </Route>
       </Router>
     );

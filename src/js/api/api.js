@@ -25,6 +25,16 @@ var PokeApi = {
     .catch(function(error) {
       console.log('There was an ERROR: ', error);
     });
+  },
+
+  pokemonType: function(query) {
+    return P.getTypeByName(query)
+    .then(function(response) {
+      return response;
+    })
+    .catch(function(error) {
+      console.log('There was an ERROR: ', error);
+    });
   }
 
 }
