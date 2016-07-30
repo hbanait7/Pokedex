@@ -28,7 +28,7 @@ class PokeContainer extends Component {
           return (
             <div key={index} className="col-xs-6 col-md-2">
               <Link style={aTagStyle} to={ `show/${index + 1}` } className="thumbnail">
-                <img src={`https://s3-eu-west-1.amazonaws.com/calpaterson-pokemon/${index + 1}.jpeg`} style={imgStyle} />
+                <img src={pokemon.imgUrl} style={imgStyle} />
                 <p style={textStyle}>{pokemon.entry_number}</p>
                 <p style={textStyle}>{pokemon.pokemon_species.name}</p>
               </Link>

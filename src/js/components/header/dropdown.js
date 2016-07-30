@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import PokeApi from '../../api/api.js';
 
 class Dropdown extends Component {
@@ -12,15 +12,9 @@ class Dropdown extends Component {
     };
   }
 
-  onClick(type) {
-    type.preventDefault();
-    let query = type.target.text;
-    console.log(query);
-    console.log(typeof query);
-    PokeApi.pokemonType(query).then(function(data) {
-      console.log(data);
-    }.bind(this));
-  }
+  
+
+// http://stackoverflow.com/questions/29510301/pass-reference-of-a-component-to-another-one-in-reactjs
 
   render() {
 
@@ -28,7 +22,7 @@ class Dropdown extends Component {
 
     var list = types.map((type, index) => {
       return (
-        <li key={index} onClick={this.onClick.bind(this)}>
+        <li key={index} onClick={this.context.onDropdownItemClick.bind(this)}>
           <a href="#">{type}</a>
         </li>
       )
@@ -48,5 +42,9 @@ class Dropdown extends Component {
     );
   }
 }
+
+Dropdown.contextTypes = {
+  onDropdownItemClick : PropTypes.func.isRequired
+};
 
 export default Dropdown

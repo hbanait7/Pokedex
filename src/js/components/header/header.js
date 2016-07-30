@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, {PropTypes, Component } from 'react';
 import SearchBar from './searchBar.js';
 import Dropdown from './dropdown.js';
 
@@ -32,5 +32,7 @@ class Header extends Component {
     );
   }
 }
+
+
 
 export default Header
