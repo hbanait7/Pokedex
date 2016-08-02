@@ -12,10 +12,6 @@ class Dropdown extends Component {
     };
   }
 
-  
-
-// http://stackoverflow.com/questions/29510301/pass-reference-of-a-component-to-another-one-in-reactjs
-
   render() {
 
     var types = ['normal', 'fire', 'water', 'electric', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon'];

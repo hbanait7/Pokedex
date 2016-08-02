@@ -5,6 +5,10 @@ import { Link } from 'react-router';
 
 class PokeContainer extends Component {
 
+  capitalize(name) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
+
   render() {
 
     var imgStyle = {
@@ -27,10 +31,10 @@ class PokeContainer extends Component {
         {this.props.pokeList.map((pokemon, index) => {
           return (
             <div key={index} className="col-xs-6 col-md-2">
-              <Link style={aTagStyle} to={ `show/${index + 1}` } className="thumbnail">
+              <Link style={aTagStyle} to={'show/' + pokemon.entry_number} className="thumbnail">
                 <img src={pokemon.imgUrl} style={imgStyle} />
                 <p style={textStyle}>{pokemon.entry_number}</p>
-                <p style={textStyle}>{pokemon.pokemon_species.name}</p>
+                <p style={textStyle}>{this.capitalize(pokemon.pokemon_species.name)}</p>
               </Link>
             </div>
           );
