@@ -9,7 +9,7 @@ class Header extends Component {
   render() {
 
     return (
-      <div>
+      <div className="row">
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container-fluid">
             <div className="navbar-header">
