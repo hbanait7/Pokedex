@@ -21,7 +21,6 @@ class PokeShow extends Component {
   componentWillMount() {
     var query = this.props.params.imageId;
     PokeApi.showPokemon(query).then(function(data) {
-      console.log(data);
       this.setState({
         name:   data.name,
         weight: data.weight,
@@ -55,6 +54,10 @@ class PokeShow extends Component {
       marginRight: '10px'
     };
 
+    var mediaBodyStyle = {
+      marginBottom: '20px'
+    };
+
     var pokeTypes = this.state.types !== []
     ? 
       <ul style={ulStyle}> {
@@ -67,25 +70,26 @@ class PokeShow extends Component {
     : ''
     ;       
 
-    console.log(this.state.types);
-
     return (
-      <div className="row">
-        <div className="col-sm-12">
-          <div className="media">
-            <div className="media-left media-top">
-              <img className="media-object" src={imageUrl}/>
+      <div>
+        <div style={mediaBodyStyle} className="row">
+          <div className='col-xs-12 col-sm-offset-3 col-xs-offset-0'>
+            <div className="media">
+              <div className="media-left media-top">
+                <img className="media-object" src={imageUrl}/>
+              </div>
+              <div className="media-body">
+                <h1 className="media-heading">{this.capitalize(this.state.name)}</h1>
+                <h4 className="media-heading">{pokeNumber}</h4>
+                <h4 className="media-heading">{pokeWeight}</h4>
+                <h4 className="media-heading">{pokeHeight}</h4>
+                <h4 className="media-heading">{pokeTypes}</h4>
+              </div>
+              
             </div>
-            <div className="media-body">
-              <h1 className="media-heading">{this.capitalize(this.state.name)}</h1>
-              <h4 className="media-heading">{pokeNumber}</h4>
-              <h4 className="media-heading">{pokeWeight}</h4>
-              <h4 className="media-heading">{pokeHeight}</h4>
-              <h4 className="media-heading">{pokeTypes}</h4>
-            </div>
-            <BarChart stats={this.state.stats} />
           </div>
         </div>
+        <BarChart stats={this.state.stats} />
       </div>
     );
   }
