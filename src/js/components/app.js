@@ -4,26 +4,36 @@ import React, { PropTypes, Component } from 'react';
 import Header from './header/header.js';
 import Jumbotron from './jumbotron/jumbotron.js';
 import PokeApi from '../api/api.js';
-
 class App extends Component {
   
   constructor(props){
     super(props);
      this.state = {
       pokeList: [],
-      subList : []
+      subList: [],
+      pokemon: ''
     };
     this.pokemonHashMap = new Map();
   }
+  
   getChildContext(){
     return {
-      pokeList : this.state.subList,
-      onDropdownItemClick : this.onDropdownItemClick.bind(this)
+      pokeList: this.state.subList,
+      onDropdownItemClick: this.onDropdownItemClick.bind(this),
+      onSearchButtonClick: this.onSearchButtonClick.bind(this)
     }
+  }
+
+  onSearchButtonClick(text) {
+    this.setState({
+      pokemon: text
+    });
+    console.log(this.state.pokemon);
   }
 
   onDropdownItemClick(type) {
     type.preventDefault();
+    this.context.router.push('/pokemon/'+type.target.text);
     let query = type.target.text;
     PokeApi.pokemonType(query).then(function(data) {
       
@@ -53,11 +63,16 @@ class App extends Component {
       });
     }.bind(this));
   }
+  
   render() {
+
+    var headerStyle = {
+      marginBottom: '20px'
+    };
+
     return (
       <div className='container'>
         <Header />
-        <Jumbotron />
         {this.props.children}
       </div>
     );
@@ -65,8 +80,14 @@ class App extends Component {
 }
 
 App.childContextTypes = {
-  pokeList : PropTypes.array,
-  onDropdownItemClick: PropTypes.func
+  pokeList: PropTypes.array,
+  onDropdownItemClick: PropTypes.func,
+  onSearchButtonClick: PropTypes.func,
+ 
+};
+
+App.contextTypes = {
+  router: PropTypes.object.isRequired
 };
 
 export default App;

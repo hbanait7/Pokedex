@@ -55,7 +55,8 @@ class PokeShow extends Component {
     };
 
     var mediaBodyStyle = {
-      marginBottom: '20px'
+      marginTop: '100px',
+      marginBottom: '30px'
     };
 
     var pokeTypes = this.state.types !== []
